@@ -1,32 +1,24 @@
 import java.util.HashMap;
-import java.util.Scanner;
 
 public class Account {
 
-    static Scanner scanner = new Scanner(System.in);
-    
+    public static HashMap<String, String> users = new HashMap<>();
     /*
     users saves: username and password
     doesn't allow any duplicates
      */
-    public static HashMap<String, String> users = new HashMap<>();
 
     private int balance;
-    private String username;
-    private String password;
+    private final String username;
 
     public Account(String username, String password, int balance) {
         this.balance = balance;
-        this.password = password;
         this.username = username;
 
         users.put(username, password);
     }
 
     //getters work without the keyword: this
-    public String returnPassword() {
-        return password;
-    }
 
     public String returnUsername() {
         return username;
@@ -37,10 +29,10 @@ public class Account {
     }
 
     public int withdrawMoney(int money) {
-        return balance -= money;
+        return balance -= money; //value is never used?
     }
 
     public int depositMoney(int money) {
-        return balance += money;
+        return balance += money; //value is also never used?
     }
 }
